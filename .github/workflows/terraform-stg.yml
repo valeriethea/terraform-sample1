@@ -37,6 +37,7 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
+      if: github.ref == 'refs/heads/stg' && github.event_name == 'push'
       run: terraform plan
 
       # On push to main, build or change infrastructure according to Terraform configuration files
